@@ -2,6 +2,7 @@ version: '3.1'
 services:
   web:
     image: nginx:1.13.5
+    container_name: "projet_web"
     ports:
       - "8080:8080"
       - "8081:8081"
@@ -16,10 +17,12 @@ services:
       - database2
   php1:
     image: php:7-fpm
+    container_name: "projet_php1"
     volumes:
       - ./app1:/code/app1
   database1:
     image: mysql:5.7.19
+    container_name: "projet_db1"
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       MYSQL_USER: "app1"
@@ -27,16 +30,19 @@ services:
       MYSQL_DATABASE: "app1"
   phpmyadmin1:
     image: phpmyadmin/phpmyadmin
+    container_name: "projet_phpmyadmin1"
     ports:
       - 3000:80
     links:
       - database1:db
   php2:
     image: php:7-fpm
+    container_name: "projet_php2"
     volumes:
       - ./app2:/code/app2
   database2:
     image: mysql:8.0.3
+    container_name: "projet_db2"
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       MYSQL_USER: "app2"
@@ -44,6 +50,7 @@ services:
       MYSQL_DATABASE: "app2"
   phpmyadmin2:
     image: phpmyadmin/phpmyadmin
+    container_name: "projet_phpmyadmin2"
     ports:
       - 3001:80
     links:
