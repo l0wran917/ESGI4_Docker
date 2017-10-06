@@ -1,3 +1,3 @@
-<h1>app1</h1>
+<h1>App 1</h1>
 <?php
-echo phpinfo();
+echo "It Works !"; 
