@@ -10,6 +10,7 @@ services:
       - ./app1:/code/app1
       - ./app2:/code/app2
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./logs:/var/log/nginx/
     links:
       - php1
       - php2
